@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
-import { BBCharacter } from 'src/app/Models/ICharacter';
+import { BBCharacter } from 'src/app/Models/Interfaces';
 import { BreakingBadApiService } from 'src/app/Providers/breaking-bad-api.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class HomePage implements  OnInit {
   public mainCharacterList: BBCharacter[] = [];
   public secondaryCharacterList: BBCharacter[] = [];
   public extraCharacterList: BBCharacter[] = [];
-
+  selectedLanguage = 'es';
   //-----
   // CICLO DE VIDA
   //-----

@@ -12,15 +12,26 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 // TRADUCCIÓN DE LA APPLICACIÓN
 import{ TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // Componente - Menu Lateral
 import {SidemenuComponent} from '../app/Components/sidemenu/sidemenu.component';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/languages/', '.json');
+}
 @NgModule({
   declarations: [AppComponent, SidemenuComponent],
   entryComponents: [SidemenuComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: createTranslateLoader,
+          deps: [HttpClient]
+      }
+  })],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

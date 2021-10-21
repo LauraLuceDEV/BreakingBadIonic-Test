@@ -9,13 +9,16 @@
       "cancel": "CANCEL",
       "spanishLang": "Spanish",
       "englishLang": "English",
-      "randomChar": "Random character",
+      "randomChar": "Random character"
+
+  },
+  "detail":{
       "nameAtr": "Name",
       "portrayedAtr": "Portrayed",
       "birthdayAtr": "Birthday",
       "statusAtr": "Status",
       "occupationAtr": "Occupation",
       "appearanceAtr": "Appearance",
-      "CategoryAtr": "Category"
+      "categoryAtr": "Category"
   }
 }

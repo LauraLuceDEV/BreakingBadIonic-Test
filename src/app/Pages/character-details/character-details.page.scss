@@ -4,7 +4,7 @@ ion-row{
   min-height: 2.5rem;
 }
 
-#first-description-row{
+.mg-top-row{
   margin-top: 1rem;
 }
 #character-photo{
@@ -35,4 +35,12 @@ ion-row{
 }
 .no-border{
   border: 0px !important;
+}
+
+.text-style{
+  font-size: medium;
+  font-style: oblique;
+  font-weight: 300;
+  padding: 1rem;
+  color: #5c5c3d;
 }

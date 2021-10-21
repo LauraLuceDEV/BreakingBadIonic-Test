@@ -12,3 +12,9 @@ export interface BBCharacter {
   portrayed: string;
   category: string[];
 }
+
+export interface characterQuote{
+  quote_id: number;
+  quote: string;
+  author: string;
+}

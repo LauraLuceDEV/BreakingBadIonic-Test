@@ -15,9 +15,13 @@
         <img id="character-photo" src="{{character?.img}}" alt="{{character?.name}} - photo"/>
       </ion-row>
 
-      <ion-row id="first-description-row">
+      <ion-row class="mg-top-row ion-text-center place-content-center" *ngIf="characterQuote">
+        <ion-text class="text-style">{{characterQuote}}</ion-text>
+      </ion-row>
+
+      <ion-row class="mg-top-row">
         <ion-col size="6" color="medium" class="mg-left place-self right-border">
-          <p class="title color-dark-olive">Name</p>
+          <p class="title color-dark-olive">{{ 'detail.nameAtr' | translate }}</p>
         </ion-col>
         <ion-col size="6" class="place-self right-border">
           <p>{{character?.name}}</p>
@@ -27,7 +31,7 @@
 
       <ion-row>
         <ion-col size="6" color="medium" class="mg-left place-self right-border">
-          <p class="title color-dark-olive">Portrayed</p>
+          <p class="title color-dark-olive">{{ 'detail.portrayedAtr' | translate }}</p>
         </ion-col>
         <ion-col size="6" class="place-self right-border">
           {{character?.portrayed}}
@@ -36,7 +40,7 @@
 
       <ion-row>
         <ion-col size="6" color="medium" class="mg-left place-self right-border">
-          <p class="title color-dark-olive">Birthday</p>
+          <p class="title color-dark-olive">{{ 'detail.birthdayAtr' | translate }}</p>
         </ion-col>
         <ion-col size="6" class="place-self right-border">
           {{character?.birthday}}
@@ -45,7 +49,7 @@
 
       <ion-row>
         <ion-col size="6" color="medium" class="mg-left place-self right-border">
-          <p class="title color-dark-olive">Status</p>
+          <p class="title color-dark-olive">{{ 'detail.statusAtr' | translate }}</p>
         </ion-col>
         <ion-col size="6" class="place-self right-border">
           <ion-icon *ngIf="character?.status === 'Deceased'" name="skull-outline"></ion-icon>
@@ -56,7 +60,7 @@
 
       <ion-row>
         <ion-col size="6" color="medium" class="mg-left place-self right-border">
-          <p class="title color-dark-olive">Occupation</p>
+          <p class="title color-dark-olive">{{ 'detail.occupationAtr' | translate }}</p>
         </ion-col>
         <ion-col size="6" class="place-self right-border">
           {{character?.occupation}}
@@ -65,7 +69,7 @@
 
       <ion-row>
         <ion-col size="6" color="medium" class="mg-left place-self right-border">
-          <p class="title color-dark-olive">Appearance</p>
+          <p class="title color-dark-olive">{{ 'detail.appearanceAtr' | translate }}</p>
         </ion-col>
         <ion-col size="6" class="place-self right-border">
           {{character?.appearance}}
@@ -74,7 +78,7 @@
 
       <ion-row>
         <ion-col size="6" color="medium" class="mg-left place-self right-border">
-          <p class="title color-dark-olive">Category</p>
+          <p class="title color-dark-olive">{{ 'detail.categoryAtr' | translate }}</p>
         </ion-col>
         <ion-col size="6" class="place-self right-border">
           {{character?.category}}
