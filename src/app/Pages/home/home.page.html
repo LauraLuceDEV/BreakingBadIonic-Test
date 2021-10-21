@@ -1,0 +1,58 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar color="warning">
+    <ion-title>
+      {{ 'home.title | translate }}
+    </ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="openSideBarMenu()">
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <!--
+        <ion-button  (click)="changeToSpanish()" class="btn-margin">
+          <img src="assets/icons/es-flag.png" class="img-flag">
+      </ion-button>
+
+      <ion-button  (click)="changeToEnglish()" class="btn-margin">
+          <img src="assets/icons/uk-flag.png" class="img-flag">
+      </ion-button> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="dark">
+  <ion-card class="bg-white">
+    <ion-grid>
+      <ion-row size="12">
+        <ion-item id="filter-item-container" color="dark" class="webkit-fill">
+          <ion-label>FILTER</ion-label>
+          <ion-select placeholder="Select One" (ionChange)="onChangeCharacterSelect($event)">
+            <ion-select-option value="principal">Principal characters</ion-select-option>
+            <ion-select-option value="secondary">Secondary characters</ion-select-option>
+            <ion-select-option value="extras">Extras</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-row>
+
+      <ion-row no-padding>
+        <ion-list color="dark" *ngIf="characterList; else loading" class="webkit-fill mg-top--05">
+          <ion-item color="dark" *ngFor="let c of characterList" routerLink="/character-details/{{c?.char_id}}">
+            <ion-avatar id="character-avatar" slot="start">
+              <img class="img-character" src="{{c?.img}}">
+            </ion-avatar>
+            <ion-label>
+              <h2>{{c?.name}}</h2>
+              <p>{{c?.nickname}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
+        <ng-template #loading>
+          <ion-item >
+            loading
+          </ion-item>
+        </ng-template>
+
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

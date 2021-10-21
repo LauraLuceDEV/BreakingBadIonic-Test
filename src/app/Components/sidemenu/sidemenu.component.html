@@ -1,0 +1,25 @@
+  <!--MENU LATERAL-->
+  <ion-menu side="end" color="dark" content-id="main-content" menuId="lateral-menu" contentId="principal" [swipeGesture]="false" autoHide="true">
+    <ion-header>
+      <ion-toolbar translucent color="warning">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item (click)="onClickSpanishPage()">
+          <img src="../../../assets/icons/es-flag.png" class="reduced-img">
+          <ion-label>Spanish</ion-label>
+        </ion-item>
+        <ion-item (click)="onClickEnglishPage()">
+          <img src="../../../assets/icons/uk-flag.png" class="reduced-img">
+          <ion-label>English</ion-label>
+        </ion-item>
+        <ion-item (click)="onClickRandomCharacter()">
+          <img src="../../../assets/icons/walter-white.png" class="reduced-img">
+          <ion-label>Random character</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <!--// MENU LATERAL -->

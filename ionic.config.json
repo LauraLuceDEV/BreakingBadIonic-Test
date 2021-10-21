@@ -1,0 +1,7 @@
+{
+  "name": "LauraLucena-BreakingBadTest",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBackPage()">
+        <ion-icon slot="icon-only" name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <ion-card color="dark">
+    <ion-grid color="dark">
+      <ion-row class="place-content-center no-border">
+        <img id="character-photo" src="{{character?.img}}" alt="{{character?.name}} - photo"/>
+      </ion-row>
+
+      <ion-row id="first-description-row">
+        <ion-col size="6" color="medium" class="mg-left place-self right-border">
+          <p class="title color-dark-olive">Name</p>
+        </ion-col>
+        <ion-col size="6" class="place-self right-border">
+          <p>{{character?.name}}</p>
+          <p class="color-dark-olive">{{character?.nickname}}</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6" color="medium" class="mg-left place-self right-border">
+          <p class="title color-dark-olive">Portrayed</p>
+        </ion-col>
+        <ion-col size="6" class="place-self right-border">
+          {{character?.portrayed}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6" color="medium" class="mg-left place-self right-border">
+          <p class="title color-dark-olive">Birthday</p>
+        </ion-col>
+        <ion-col size="6" class="place-self right-border">
+          {{character?.birthday}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6" color="medium" class="mg-left place-self right-border">
+          <p class="title color-dark-olive">Status</p>
+        </ion-col>
+        <ion-col size="6" class="place-self right-border">
+          <ion-icon *ngIf="character?.status === 'Deceased'" name="skull-outline"></ion-icon>
+          {{character?.status}}
+          <ion-icon *ngIf="character?.status === 'Presumed dead'" name="help-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6" color="medium" class="mg-left place-self right-border">
+          <p class="title color-dark-olive">Occupation</p>
+        </ion-col>
+        <ion-col size="6" class="place-self right-border">
+          {{character?.occupation}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6" color="medium" class="mg-left place-self right-border">
+          <p class="title color-dark-olive">Appearance</p>
+        </ion-col>
+        <ion-col size="6" class="place-self right-border">
+          {{character?.appearance}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6" color="medium" class="mg-left place-self right-border">
+          <p class="title color-dark-olive">Category</p>
+        </ion-col>
+        <ion-col size="6" class="place-self right-border">
+          {{character?.category}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

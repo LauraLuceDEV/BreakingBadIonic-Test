@@ -1,0 +1,21 @@
+{
+  "home": {
+      "title": "Choose a character",
+      "filterTitle": "FILTER",
+      "filterSelect": "Select One",
+      "principalCharacters": "Principal characters",
+      "secondaryCharacters": "Secondary characters",
+      "extras": "Extras",
+      "cancel": "CANCEL",
+      "spanishLang": "Spanish",
+      "englishLang": "English",
+      "randomChar": "Random character",
+      "nameAtr": "Name",
+      "portrayedAtr": "Portrayed",
+      "birthdayAtr": "Birthday",
+      "statusAtr": "Status",
+      "occupationAtr": "Occupation",
+      "appearanceAtr": "Appearance",
+      "CategoryAtr": "Category"
+  }
+}

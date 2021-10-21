@@ -1,0 +1,21 @@
+{
+  "home": {
+      "title": "Elige Personaje",
+      "filterTitle": "FILTRO",
+      "filterSelect": "Selecciona",
+      "principalCharacters": "Personajes principales",
+      "secondaryCharacters": "Personajes secundarios",
+      "extras": "Extras",
+      "cancel": "CANCELAR",
+      "spanishLang": "Español",
+      "englishLang": "Inglés",
+      "randomChar": "Personaje aleatorio",
+      "nameAtr": "Nombre",
+      "portrayedAtr": "Actor",
+      "birthdayAtr": "Fecha de nacimiento",
+      "statusAtr": "Estado",
+      "occupationAtr": "Ocupación/es",
+      "appearanceAtr": "Temporadas",
+      "CategoryAtr": "Series"
+  }
+}

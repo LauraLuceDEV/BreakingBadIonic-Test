@@ -1,0 +1,38 @@
+
+ion-row{
+  border: 1px solid #3333;
+  min-height: 2.5rem;
+}
+
+#first-description-row{
+  margin-top: 1rem;
+}
+#character-photo{
+  max-width: 60%;
+}
+
+.title{
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.color-dark-olive{
+  color: #5c5c3d;
+}
+
+.mg-left{
+  padding-left: 2rem;
+}
+
+.right-border{
+  border-width: 0em 0.1rem 0rem 0rem;
+  border-color: #3333;
+}
+
+.left-border{
+  border-width: 0em 0rem 0rem 0.1rem;
+  border-color: #3333;
+}
+.no-border{
+  border: 0px !important;
+}
