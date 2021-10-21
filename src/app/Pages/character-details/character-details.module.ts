@@ -8,6 +8,7 @@ import { CharacterDetailsPageRoutingModule } from './character-details-routing.m
 
 import { CharacterDetailsPage } from './character-details.page';
 import { TranslateModule } from '@ngx-translate/core';
+import {ErrorLoadingDataComponent} from '../../Components/error-loading-data/error-loading-data.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { TranslateModule } from '@ngx-translate/core';
     CharacterDetailsPageRoutingModule,
     TranslateModule.forChild()
   ],
-  declarations: [CharacterDetailsPage]
+  declarations: [CharacterDetailsPage, ErrorLoadingDataComponent]
 })
 export class CharacterDetailsPageModule {}

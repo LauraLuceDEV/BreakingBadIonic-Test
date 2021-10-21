@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+/* eslint-disable @typescript-eslint/member-ordering */
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BreakingBadApiService } from 'src/app/Providers/breaking-bad-api.service';
 import { MenuController} from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -10,7 +12,8 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './sidemenu.component.html',
   styleUrls: ['./sidemenu.component.scss'],
 })
-export class SidemenuComponent implements OnInit {
+export class SidemenuComponent implements OnInit, OnDestroy {
+  private subscription: Subscription = new Subscription();
   selectedLanguage = 'es';
 
   constructor(private router: Router,
@@ -23,6 +26,10 @@ export class SidemenuComponent implements OnInit {
 
   ngOnInit() {}
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
   onClickEnglishPage(){
     this.translateService.use('en');
   }
@@ -32,13 +39,22 @@ export class SidemenuComponent implements OnInit {
   }
 
   onClickRandomCharacter(){
-    this.apiService.getRandomcharacter().subscribe(
+    this.subscription.add(
+      this.apiService.getRandomcharacter().subscribe(
       (resp) => {
         const characterID = Number(resp[0].char_id);
-        console.log(characterID);
-        this.router.navigateByUrl(`/character-details/${characterID}`);
+        let characterName;
+
+        this.subscription.add(this.apiService.getcharacterByID(characterID)
+          .subscribe( (resp2) =>{
+          characterName = resp2[0].name;
+          this.router.navigateByUrl(`/character-details/${characterID}/${characterName}`);
+          }
+          )
+        );
       }
-    );
+    )
+  );
     this.menuCtrl.close();
   }
 

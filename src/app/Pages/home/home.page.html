@@ -14,37 +14,44 @@
 <ion-content [fullscreen]="true" color="dark">
   <ion-card class="bg-white">
     <ion-grid>
-      <ion-row size="12">
-        <ion-item id="filter-item-container" color="dark" class="webkit-fill">
-          <ion-label>{{ 'home.filterTitle' | translate }}</ion-label>
-          <ion-select placeholder="Select One" (ionChange)="onChangeCharacterSelect($event)">
-            <ion-select-option value="principal">{{ 'home.principalCharacters' | translate }}</ion-select-option>
-            <ion-select-option value="secondary">{{ 'home.secondaryCharacters' | translate }}</ion-select-option>
-            <ion-select-option value="extras">{{ 'home.extras' | translate }}</ion-select-option>
-          </ion-select>
-        </ion-item>
+      <ion-row *ngIf="conexionFailed else conexionInProgress" size="12" class="place-content-center">
+        <error-loading-data></error-loading-data>
       </ion-row>
 
-      <ion-row no-padding>
-        <ion-list color="dark" *ngIf="characterList; else loading" class="webkit-fill mg-top--05">
-          <ion-item color="dark" *ngFor="let c of characterList" routerLink="/character-details/{{c?.char_id}}/{{c?.name}}">
-            <ion-avatar id="character-avatar" slot="start">
-              <img class="img-character" src="{{c?.img}}">
-            </ion-avatar>
-            <ion-label>
-              <h2>{{c?.name}}</h2>
-              <p>{{c?.nickname}}</p>
-            </ion-label>
+      <!--Si funciona la conexión-->
+      <ng-template #conexionInProgress>
+        <ion-row size="12">
+          <ion-item id="filter-item-container" color="dark" class="webkit-fill">
+            <ion-label>{{ 'home.filterTitle' | translate }}</ion-label>
+            <ion-select placeholder="Select One" (ionChange)="onChangeCharacterSelect($event)">
+              <ion-select-option value="principal">{{ 'home.principalCharacters' | translate }}</ion-select-option>
+              <ion-select-option value="secondary">{{ 'home.secondaryCharacters' | translate }}</ion-select-option>
+              <ion-select-option value="extras">{{ 'home.extras' | translate }}</ion-select-option>
+            </ion-select>
           </ion-item>
-        </ion-list>
+        </ion-row>
 
-        <ng-template #loading>
-          <ion-item >
-            loading
-          </ion-item>
-        </ng-template>
+        <ion-row no-padding>
+          <ion-list color="dark" *ngIf="characterList; else loading" class="webkit-fill mg-top--05">
+            <ion-item color="dark" *ngFor="let c of characterList" routerLink="/character-details/{{c?.char_id}}/{{c?.name}}">
+              <ion-avatar id="character-avatar" slot="start">
+                <img class="img-character" src="{{c?.img}}">
+              </ion-avatar>
+              <ion-label>
+                <h2>{{c?.name}}</h2>
+                <p>{{c?.nickname}}</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
 
-      </ion-row>
+          <ng-template #loading>
+            <ion-item >
+              loading
+            </ion-item>
+          </ng-template>
+
+        </ion-row>
+      </ng-template>
     </ion-grid>
   </ion-card>
 </ion-content>

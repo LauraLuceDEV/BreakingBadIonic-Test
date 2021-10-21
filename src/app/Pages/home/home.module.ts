@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
+import {ErrorLoadingDataComponent} from '../../Components/error-loading-data/error-loading-data.component';
 
 
 @NgModule({
@@ -16,6 +17,6 @@ import { TranslateModule } from '@ngx-translate/core';
     HomePageRoutingModule,
     TranslateModule.forChild()
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, ErrorLoadingDataComponent]
 })
 export class HomePageModule {}

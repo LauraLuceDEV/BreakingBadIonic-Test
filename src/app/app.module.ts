@@ -14,7 +14,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import{ TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-// Componente - Menu Lateral
+// Componentes - Menu Lateral y vista de error
 import {SidemenuComponent} from '../app/Components/sidemenu/sidemenu.component';
 
 // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
@@ -23,7 +23,7 @@ export function createTranslateLoader(http: HttpClient) {
 }
 @NgModule({
   declarations: [AppComponent, SidemenuComponent],
-  entryComponents: [SidemenuComponent],
+  entryComponents: [SidemenuComponent ],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
     TranslateModule.forRoot({
       loader: {

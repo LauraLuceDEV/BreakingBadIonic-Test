@@ -11,79 +11,85 @@
 <ion-content color="dark">
   <ion-card color="dark">
     <ion-grid color="dark">
-      <ion-row class="place-content-center no-border">
-        <img id="character-photo" src="{{character?.img}}" alt="{{character?.name}} - photo"/>
+      <ion-row *ngIf="conexionFailed else conexionInProgress" size="12" class="place-content-center">
+        <error-loading-data></error-loading-data>
       </ion-row>
 
-      <ion-row class="mg-top-row ion-text-center place-content-center" *ngIf="characterQuote">
-        <ion-text class="text-style">{{characterQuote}}</ion-text>
-      </ion-row>
+      <ng-template #conexionInProgress>
+        <ion-row class="place-content-center no-border">
+          <img id="character-photo" src="{{character?.img}}" alt="{{character?.name}} - photo"/>
+        </ion-row>
 
-      <ion-row class="mg-top-row">
-        <ion-col size="6" color="medium" class="mg-left place-self right-border">
-          <p class="title color-dark-olive">{{ 'detail.nameAtr' | translate }}</p>
-        </ion-col>
-        <ion-col size="6" class="place-self right-border">
-          <p>{{character?.name}}</p>
-          <p class="color-dark-olive">{{character?.nickname}}</p>
-        </ion-col>
-      </ion-row>
+        <ion-row class="mg-top-row ion-text-center place-content-center" *ngIf="characterQuote">
+          <ion-text class="text-style">{{characterQuote}}</ion-text>
+        </ion-row>
 
-      <ion-row>
-        <ion-col size="6" color="medium" class="mg-left place-self right-border">
-          <p class="title color-dark-olive">{{ 'detail.portrayedAtr' | translate }}</p>
-        </ion-col>
-        <ion-col size="6" class="place-self right-border">
-          {{character?.portrayed}}
-        </ion-col>
-      </ion-row>
+        <ion-row class="mg-top-row">
+          <ion-col size="6" color="medium" class="mg-left place-self right-border">
+            <p class="title color-dark-olive">{{ 'detail.nameAtr' | translate }}</p>
+          </ion-col>
+          <ion-col size="6" class="place-self right-border">
+            <p>{{character?.name}}</p>
+            <p class="color-dark-olive">{{character?.nickname}}</p>
+          </ion-col>
+        </ion-row>
 
-      <ion-row>
-        <ion-col size="6" color="medium" class="mg-left place-self right-border">
-          <p class="title color-dark-olive">{{ 'detail.birthdayAtr' | translate }}</p>
-        </ion-col>
-        <ion-col size="6" class="place-self right-border">
-          {{character?.birthday}}
-        </ion-col>
-      </ion-row>
+        <ion-row>
+          <ion-col size="6" color="medium" class="mg-left place-self right-border">
+            <p class="title color-dark-olive">{{ 'detail.portrayedAtr' | translate }}</p>
+          </ion-col>
+          <ion-col size="6" class="place-self right-border">
+            {{character?.portrayed}}
+          </ion-col>
+        </ion-row>
 
-      <ion-row>
-        <ion-col size="6" color="medium" class="mg-left place-self right-border">
-          <p class="title color-dark-olive">{{ 'detail.statusAtr' | translate }}</p>
-        </ion-col>
-        <ion-col size="6" class="place-self right-border">
-          <ion-icon *ngIf="character?.status === 'Deceased'" name="skull-outline"></ion-icon>
-          {{character?.status}}
-          <ion-icon *ngIf="character?.status === 'Presumed dead'" name="help-outline"></ion-icon>
-        </ion-col>
-      </ion-row>
+        <ion-row>
+          <ion-col size="6" color="medium" class="mg-left place-self right-border">
+            <p class="title color-dark-olive">{{ 'detail.birthdayAtr' | translate }}</p>
+          </ion-col>
+          <ion-col size="6" class="place-self right-border">
+            {{character?.birthday}}
+          </ion-col>
+        </ion-row>
 
-      <ion-row>
-        <ion-col size="6" color="medium" class="mg-left place-self right-border">
-          <p class="title color-dark-olive">{{ 'detail.occupationAtr' | translate }}</p>
-        </ion-col>
-        <ion-col size="6" class="place-self right-border">
-          {{character?.occupation}}
-        </ion-col>
-      </ion-row>
+        <ion-row>
+          <ion-col size="6" color="medium" class="mg-left place-self right-border">
+            <p class="title color-dark-olive">{{ 'detail.statusAtr' | translate }}</p>
+          </ion-col>
+          <ion-col size="6" class="place-self right-border">
+            <ion-icon *ngIf="character?.status === 'Deceased'" name="skull-outline"></ion-icon>
+            {{character?.status}}
+            <ion-icon *ngIf="character?.status === 'Presumed dead'" name="help-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
 
-      <ion-row>
-        <ion-col size="6" color="medium" class="mg-left place-self right-border">
-          <p class="title color-dark-olive">{{ 'detail.appearanceAtr' | translate }}</p>
-        </ion-col>
-        <ion-col size="6" class="place-self right-border">
-          {{character?.appearance}}
-        </ion-col>
-      </ion-row>
+        <ion-row>
+          <ion-col size="6" color="medium" class="mg-left place-self right-border">
+            <p class="title color-dark-olive">{{ 'detail.occupationAtr' | translate }}</p>
+          </ion-col>
+          <ion-col size="6" class="place-self right-border">
+            {{character?.occupation}}
+          </ion-col>
+        </ion-row>
 
-      <ion-row>
-        <ion-col size="6" color="medium" class="mg-left place-self right-border">
-          <p class="title color-dark-olive">{{ 'detail.categoryAtr' | translate }}</p>
-        </ion-col>
-        <ion-col size="6" class="place-self right-border">
-          {{character?.category}}
-        </ion-col>
-      </ion-row>
+        <ion-row>
+          <ion-col size="6" color="medium" class="mg-left place-self right-border">
+            <p class="title color-dark-olive">{{ 'detail.appearanceAtr' | translate }}</p>
+          </ion-col>
+          <ion-col size="6" class="place-self right-border">
+            {{character?.appearance}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="6" color="medium" class="mg-left place-self right-border">
+            <p class="title color-dark-olive">{{ 'detail.categoryAtr' | translate }}</p>
+          </ion-col>
+          <ion-col size="6" class="place-self right-border">
+            {{character?.category}}
+          </ion-col>
+        </ion-row>
+      </ng-template>
     </ion-grid>
   </ion-card>
 </ion-content>
